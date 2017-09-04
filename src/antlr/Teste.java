@@ -16,6 +16,10 @@ public class Teste {
 		impLexer lexer = new impLexer(input);
 		CommonTokenStream token = new CommonTokenStream(lexer);
 		impParser parser = new impParser(token);
-		parser.pgm();		
+		parser.pgm();
+
+	/*	ParseTree tree = parser.pgm();
+		Processs visit = new Processs();
+		visit.visit(tree);  */
 	}
 }

@@ -1,6 +1,58 @@
 var n, s ;
 n := 100 ;
 s := 0 ;
-while not n <= 0 do
+while not(n <= 0) do (
 s := s + n ;
 n := n + -1
+)
+
+eq sumPgm = (
+var n, s ;
+n := 100 ;
+while not(n <= 0) do (
+s := s + n ;
+n := n + -1
+) )
+
+eq collatzStmt = (
+while not (n <= 1) do (
+s := s + 1 ; q := n / 2 ; r := q + q + 1 ;
+if r <= n then n := n + n + n + 1 else n := q
+) )
+
+eq collatzPgm = (
+var m, n, q, r, s ;
+m := 10 ;
+while not (m <= 2) do (
+n := m ;
+m := m + -1 ;
+collatzStmt
+) )
+
+eq multiplicationStmt = (
+z := 0 ;
+while not(x <= 0) do (
+q := x / 2 ;
+r := q + q + 1 ;
+if r <= x then z := z + y else skip ;
+x := q ;
+y := y + y
+) )
+
+eq primalityStmt = (
+i := 2 ; q := n / i ; t := 1 ;
+while (i <= q and 1 <= t) do (
+x := i ;
+y := q ;
+multiplicationStmt ;
+if n <= z then t := 0 else (i := i + 1 ; q := n / i)
+) )
+
+eq countPrimesPgm = (
+var i, m, n, q, r, s, t, x, y, z ;
+m := 10 ; n := 2 ;
+while n <= m do (
+primalityStmt ;
+if 1 <= t then s := s + 1 else skip ;
+n := n + 1
+) )
